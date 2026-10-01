@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { useEffect } from "react";
 import Weather from "./Components/Weather";
-
+import Mousam from "./Components/Mousam";
 function App() {
 
   const [weatherData, setWeatherData] = useState(null);
@@ -28,6 +28,7 @@ const API_KEY="aa9ff60b44c0d10b18101db68fa22a91";
     // IMPORTANT FIX
     if (data.cod !== 200) {
       setError(data.message);
+      console.log("error occured");
       setWeatherData(null);
       return;
     }
@@ -44,6 +45,7 @@ const API_KEY="aa9ff60b44c0d10b18101db68fa22a91";
 
   useEffect(() => {
     fetchData(city);
+    
   }, []);
 
   
@@ -52,7 +54,7 @@ const API_KEY="aa9ff60b44c0d10b18101db68fa22a91";
       <div>
         
   <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 flex items-center justify-center">
-  
+  <Mousam></Mousam>
     <Weather
       weatherData={weatherData}
       city={city}
